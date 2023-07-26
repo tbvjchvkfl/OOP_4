@@ -43,3 +43,9 @@ const NPoint2D& operator++(NPoint2D& arg1, int V)
 	arg1.mY++;
 	return temp;
 }
+
+std::ostream& operator<<(std::ostream& os, NPoint2D pt)
+{
+	os << "(" << pt.mX << ", " << pt.mY << ")";
+	return os;
+}

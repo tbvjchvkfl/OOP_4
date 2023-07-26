@@ -95,4 +95,14 @@ int main()
 	pt8.Print();
 	pt9.Print();
 
+
+	std::cout << "----------" << std::endl;
+	std::cout << pt9[0] << ", " << pt9[1] << std::endl;
+
+	pt9[0] = 10;
+	pt9[1] = 20;
+	pt9.Print();
+
+	float dist = pt9;
+	std::cout << dist << std::endl;
 }

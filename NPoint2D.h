@@ -18,6 +18,8 @@ public:
 
 	friend const NPoint2D& operator++(NPoint2D& arg1, int V);
 
+	friend std::ostream& operator<<(std::ostream& os, NPoint2D pt);
+
 	// 멤버 함수 버전의 연산자 오버로딩
 
 	// 전위 연산자
@@ -44,6 +46,42 @@ public:
 		mY--;
 		return temp;
 	}
+
+	// [] 연산자 오버로딩
+	int& operator[] (int index)
+	{
+		switch (index)
+		{
+		case 0:
+		{
+			return mX;
+		}
+		break;
+		case 1:
+		{
+			return mY;
+		}
+		break;
+		default:
+		{
+			std::cerr << "Index error" << std::endl;
+		}
+		break;
+		}
+	}
+
+	operator double()
+	{
+		return sqrt(mX * mX + mY * mY);
+	}
+
+	void operator() (int x, int y)
+	{
+		mX = x;
+		mY = y;
+	}
+
+
 };
 
 // 연산자 오버로딩
@@ -62,3 +100,6 @@ NPoint2D operator++(NPoint2D arg1);
 
 // 후위 연산자
 const NPoint2D& operator++(NPoint2D& arg1, int V);
+
+// 스트림 연산자 오버로딩
+std::ostream& operator<<(std::ostream& os, NPoint2D pt);
